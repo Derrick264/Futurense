@@ -1,0 +1,8 @@
+Please complete the following task:
+
+1. Create a new branch on your GitHub directory.
+
+2. Push a simple file from your local repository to GitHub directory in this new branch.
+
+3. Explore GitLab. Similar processes and steps can also be followed with GitLab instead of GitHub.
+
