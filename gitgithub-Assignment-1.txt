@@ -8,3 +8,4 @@ Please complete the following task:
 
 4. Finish Assignment 2
 5. Create Pull request
+6. Contribute
