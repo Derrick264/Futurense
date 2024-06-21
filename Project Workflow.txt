@@ -1,0 +1,34 @@
+   +----------------------+           +----------------------+           +----------------------+
+   |                      |           |                      |           |                      |
+   |   MySQL Database     |           |   Flask Application  |           |  User Interface      |
+   |                      |           |                      |           |  (HTML/CSS/JS/Jinja) |
+   +----------+-----------+           +----------+-----------+           +----------+-----------+
+              |                                   |                                   |
+              |                                   |                                   |
+              |        Database Queries/           |         HTTP Requests/            |
+              |        Transactions                |         Responses                 |
+              |                                   |                                   |
+              v                                   v                                   v
+   +----------------------+           +----------------------+           +----------------------+
+   |                      |           |                      |           |                      |
+   |   Tables:             |           |   Flask Routes:      |           |   UI Elements:        |
+   |   - Courses           |           |                      |           |   - Forms             |
+   |   - Students          |           |   GET /courses       |           |   - Buttons           |
+   |   - Instructors       |  <------> |   POST /courses      |  <------> |   - Views/Displays    |
+   |   - Grades            |           |   DELETE /courses/1  |           |   - Data Input Fields |
+   |   - Deleted Items     |           |                      |           |                      |
+   +----------------------+           +----------------------+           +----------------------+
+              |                                   |                                   |
+              |                                   |                                   |
+              |   Data Integrity                  |   Business Logic                  |
+              |   (Foreign Keys,                 |   (CRUD Operations,               |
+              |   Transactions)                  |   Validation, Error Handling)     |
+              v                                   v                                   v
+   +----------------------+           +----------------------+           +----------------------+
+   |                      |           |                      |           |                      |
+   |   Database Actions:   |           |   Application Logic:  |           |   UI Interactions:    |
+   |   - CRUD Operations   |           |   - Request Handling  |           |   - User Inputs      |
+   |   - Transactions      |           |   - Data Processing  |           |   - Actions/Buttons  |
+   |   - Constraints       |           |   - Error Handling   |           |   - Data Displays    |
+   |                      |           |   - Database Queries |           |                      |
+   +----------------------+           +----------------------+           +----------------------+

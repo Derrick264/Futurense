@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduSchema : Aswin D</title>
+    <script>
+        async function deleteStudent() {
+            const studentId = document.getElementById('studentId').value;
+            if (!studentId) {
+                alert('Please enter a student ID.');
+                return;
+            }
+            const response = await fetch(`/delete_student/${studentId}`, {
+                method: 'DELETE',
+            });
+            const result = await response.json();
+            alert(result.message || result.error);
+        }
+
+        async function addStudent() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const response = await fetch('/add_student', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                }),
+            });
+            const result = await response.json();
+            alert(result.message || result.error);
+        }
+
+        async function getStudents() {
+            const response = await fetch('/get_students', {
+                method: 'GET',
+            });
+            const students = await response.json();
+            const studentList = document.getElementById('studentList');
+            studentList.innerHTML = '';
+            students.forEach(student => {
+                const li = document.createElement('li');
+                li.textContent = `${student.first_name} ${student.last_name} (${student.email})`;
+                studentList.appendChild(li);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Mini Project - 2 : Aswin D</h1>
+    <div>
+        <h2>Delete Student</h2>
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId">
+        <button onclick="deleteStudent()">Delete Student</button>
+    </div>
+    <div>
+        <h2>Add Student</h2>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <button onclick="addStudent()">Add Student</button>
+    </div>
+    <div>
+        <h2>All Students</h2>
+        <button onclick="getStudents()">Get All Students</button>
+        <ul id="studentList"></ul>
+    </div>
+    <!-- further -->
+</body>
+</html>
